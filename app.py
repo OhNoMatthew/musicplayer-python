@@ -84,6 +84,7 @@ def play_music(event=None):
 
 # Function to pause music
 def pause_music():
+    """Pause Music"""
     global is_paused
     if not playlist:
         return
@@ -141,32 +142,15 @@ song_listbox.pack()
 # Bind a selection event to the listbox
 song_listbox.bind('<<ListboxSelect>>', play_music)
 
-# Load images for control buttons
-play_button_image = PhotoImage(file='play_button.png')
-pause_button_image = PhotoImage(file='pause_button.png')
-next_button_image = PhotoImage(file='next_button.png')
-previous_button_image = PhotoImage(file='previous_button.png')
-
 # Create control buttons
 control_frame = Frame(app)
 control_frame.pack()
 
-play_button = Button(control_frame, image=play_button_image, borderwidth=0, command=play_music)
-pause_button = Button(control_frame, image=pause_button_image, borderwidth=0, command=pause_music)
-next_button = Button(control_frame, image=next_button_image, borderwidth=0, command=next_music)
-previous_button = Button(control_frame, image=previous_button_image, borderwidth=0, command=previous_music)
-
-# Keep image references so Tkinter doesn't garbage-collect them
-play_button.image = play_button_image
-pause_button.image = pause_button_image
-next_button.image = next_button_image
-previous_button.image = previous_button_image
-
 # Pack buttons side by side
-previous_button = Button(app, text="⏮", width=15, height=3)
-play_button = Button(app, text="▶", width=15, height=3)
-pause_button = Button(app, text="⏸", width=15, height=3)
-next_button = Button(app, text="⏭", width=15, height=3)
+previous_button = Button(app, text="⏮", width=15, height=3,command=previous_music)
+play_button = Button(app, text="▶", width=15, height=3,command=play_music)
+pause_button = Button(app, text="⏸", width=15, height=3,command=next_music)
+next_button = Button(app, text="⏭", width=15, height=3,command=previous_music)
 
 previous_button.pack(side="left", padx=5, pady=5)
 play_button.pack(side="left", padx=5, pady=5)
