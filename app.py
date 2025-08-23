@@ -63,6 +63,7 @@ def load_music():
 
 # Function to play music
 def play_music(event=None):
+    """Play Music"""
     global current_song, is_paused
 
     if not playlist:
@@ -93,6 +94,7 @@ def pause_music():
 
 # Function to play the next song
 def next_music():
+    """Next Music"""
     global current_song, is_paused
 
     if not playlist:
@@ -110,6 +112,7 @@ def next_music():
         print("Error:", e)
 
 def previous_music():
+    """Previous Music"""
     global current_song, is_paused
 
     if not playlist:
@@ -149,8 +152,8 @@ control_frame.pack()
 # Pack buttons side by side
 previous_button = Button(app, text="⏮", width=15, height=3,command=previous_music)
 play_button = Button(app, text="▶", width=15, height=3,command=play_music)
-pause_button = Button(app, text="⏸", width=15, height=3,command=next_music)
-next_button = Button(app, text="⏭", width=15, height=3,command=previous_music)
+pause_button = Button(app, text="⏸", width=15, height=3,command=pause_music)
+next_button = Button(app, text="⏭", width=15, height=3,command=next_music)
 
 previous_button.pack(side="left", padx=5, pady=5)
 play_button.pack(side="left", padx=5, pady=5)
