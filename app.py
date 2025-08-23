@@ -163,10 +163,15 @@ next_button.image = next_button_image
 previous_button.image = previous_button_image
 
 # Pack buttons side by side
-previous_button.pack(side="left", padx=5)
-play_button.pack(side="left", padx=5)
-pause_button.pack(side="left", padx=5)
-next_button.pack(side="left", padx=5)
+previous_button = Button(app, text="⏮", width=15, height=3)
+play_button = Button(app, text="▶", width=15, height=3)
+pause_button = Button(app, text="⏸", width=15, height=3)
+next_button = Button(app, text="⏭", width=15, height=3)
+
+previous_button.pack(side="left", padx=5, pady=5)
+play_button.pack(side="left", padx=5, pady=5)
+pause_button.pack(side="left", padx=5, pady=5)
+next_button.pack(side="left", padx=5, pady=5)
 
 # Start checking for the end of song event
 app.after(100, check_music_end)
